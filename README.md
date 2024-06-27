@@ -12,12 +12,26 @@ Steps to get going:
 > in order to give it enough permission.
 
 3. Download Kafka into the EC2 instance.
+   - **Do not download a source files from appache kafka, download a binary file**
 
-`wget https://archive.apache.org/dist/kafka/3.7.0/kafka-3.7.0-src.tgz`
+`wget https://archive.apache.org/dist/kafka/3.7.0/kafka_2.12-3.7.0.tgz`
+
+Unarchive it by `tar -xvf kafka_2.12-3.7.0.tgz`.
 
 4. Download Java.
 
 `sudo yum install java-22-amazon-corretto`
 
-5. 
+5. Get the zookeeper running. (ZooKeeper plays a crucial role in coordinating and managing the distributed environment. )
+
+`cd kafka_2.12-3.7.0`
+
+`bin/zookeeper-server-start.sh config/zookeeper.properties`
+
+6. Now that the zookeeper is running in one terminal window, we now go to another new window. We first assign more memory to the EC2 server.
+
+`export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"`
+
+7. 
+
 

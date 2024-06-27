@@ -32,14 +32,19 @@ Unarchive it by `tar -xvf kafka_2.12-3.7.0.tgz`.
 
 `export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"`
 
-7. fsdfsf
+7. Run Kafka and change the IP address to public.
 
 `cd kafka_2.12-3.7.0`
 
 `bin/kafka-server-start.sh config/server.properties`
 
 > The IP address right now is private as *ip-172-31-4-130.us-east-2.compute.internal/172.31.4.130:9092*, which we cannot access without being in the same address. So we need to make this IP address public so that we can access it.
+> 
 > `sudo nano config/server.properties` then find the block
-> `# Listener name, hostname and port the broker will advertise to clients. # If not set, it uses the value for "listeners". advertised.listeners=PLAINTEXT://18.191.237.197:9092`
+> `# Listener name, hostname and port the broker will advertise to clients. # If not set, it uses the value for "listeners". advertised.listeners=PLAINTEXT://YOUR.IP.ADDRESS:9092`
+>
+> Change the *YOUR.IP.ADDRESS* to the Public IPv4 address you have on EC2.
+
+8.
 
 

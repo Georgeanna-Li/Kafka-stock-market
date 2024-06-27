@@ -39,12 +39,20 @@ Unarchive it by `tar -xvf kafka_2.12-3.7.0.tgz`.
 `bin/kafka-server-start.sh config/server.properties`
 
 > The IP address right now is private as *ip-172-31-4-130.us-east-2.compute.internal/172.31.4.130:9092*, which we cannot access without being in the same address. So we need to make this IP address public so that we can access it.
+> First we need to stop the two running windows.
 > 
 > `sudo nano config/server.properties` then find the block
 > `# Listener name, hostname and port the broker will advertise to clients. # If not set, it uses the value for "listeners". advertised.listeners=PLAINTEXT://YOUR.IP.ADDRESS:9092`
 >
 > Change the *YOUR.IP.ADDRESS* to the Public IPv4 address you have on EC2.
 
-8.
+- **When restarting the zookeeper and kafka, you may need to reopen a new window and start the EC2 instance again to perform the following instructions.**
+
+8. Provide the EC2 security access from the local machine.
+From the EC2 page, click `Security`, and `Edit inbound rules`. Add another rule there to make it *Allowing all traffic*, and it's advised to provide your own IP address there.
+
+> Here we need to note this is mostly **NOT** the secure way to do things. But for practice purpose we are just allowing all traffic.
+
+9. Go to another terminal window, and repeat all the necessary steps to start the EC2.
 
 

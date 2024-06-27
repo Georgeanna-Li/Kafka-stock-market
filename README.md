@@ -11,7 +11,13 @@ Steps to get going:
 > `chmod 400 path/of/the/certificate.pem`
 > in order to give it enough permission.
 
-3.
-'''
-hello
-'''
+3. Download Kafka into the EC2 instance.
+
+`wget https://archive.apache.org/dist/kafka/3.7.0/kafka-3.7.0-src.tgz`
+
+4. Download Java.
+
+`sudo yum install java-22-amazon-corretto`
+
+5. 
+

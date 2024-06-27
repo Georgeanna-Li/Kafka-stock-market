@@ -53,6 +53,20 @@ From the EC2 page, click `Security`, and `Edit inbound rules`. Add another rule 
 
 > Here we need to note this is mostly **NOT** the secure way to do things. But for practice purpose we are just allowing all traffic.
 
-9. Go to another terminal window, and repeat all the necessary steps to start the EC2.
+9. Create a topic. Go to another terminal window, and repeat all the necessary steps to start the EC2.
+
+`cd kafka_2.12-3.7.0`
+
+`bin/kafka-topics.sh --create --topic kafka_topic1 --bootstrap-server 18.191.237.197:9092 --replication-factor 1 --partitions 1`
+
+10. Start Producer
+
+`bin/kafka-console-producer.sh --topic kafka_topic1 --bootstrap-server 18.191.237.197:9092 `
+
+Start Consumer:
+-------------------------
+Duplicate the session & enter in a new console --
+cd kafka_2.12-3.3.1
+bin/kafka-console-consumer.sh --topic demo_testing2 --bootstrap-server {Put the Public IP of your EC2 Instance:9092}
 
 
